@@ -285,7 +285,16 @@ function App() {
                     <strong>ID:</strong> {point.id}<br />
                     <strong>Type:</strong> <span style={{ color: typeColors[point.type] || '#808080', fontWeight: 'bold' }}>{point.type}</span><br />
                     <strong>Lat:</strong> {point.latitude.toFixed(6)}<br />
-                    <strong>Lon:</strong> {point.longitude.toFixed(6)}
+                    <strong>Lon:</strong> {point.longitude.toFixed(6)}<br />
+                    {[2, 3, 4, 5, 6, 7, 8, 9].map((num) => {
+                      const ghKey = `gh_${num}` as keyof DataPoint
+                      const ghValue = point[ghKey] as string | undefined
+                      return ghValue ? (
+                        <span key={num}>
+                          <strong>gh_{num}:</strong> {ghValue}<br />
+                        </span>
+                      ) : null
+                    })}
                   </div>
                 </Popup>
               </Marker>
@@ -312,7 +321,16 @@ function App() {
                           <strong>ID:</strong> {point.id}<br />
                           <strong>Type:</strong> <span style={{ color: typeColors[cluster.type] || '#808080', fontWeight: 'bold' }}>{cluster.type}</span><br />
                           <strong>Lat:</strong> {point.latitude.toFixed(6)}<br />
-                          <strong>Lon:</strong> {point.longitude.toFixed(6)}
+                          <strong>Lon:</strong> {point.longitude.toFixed(6)}<br />
+                          {[2, 3, 4, 5, 6, 7, 8, 9].map((num) => {
+                            const ghKey = `gh_${num}` as keyof DataPoint
+                            const ghValue = point[ghKey] as string | undefined
+                            return ghValue ? (
+                              <span key={num}>
+                                <strong>gh_{num}:</strong> {ghValue}<br />
+                              </span>
+                            ) : null
+                          })}
                         </>
                       ) : (
                         <>
